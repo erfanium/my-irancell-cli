@@ -1,0 +1,11 @@
+{
+  "extends": ["oclif", "oclif-typescript", "prettier"],
+  "rules": {
+    "perfectionist/sort-objects": ["off"],
+    "perfectionist/sort-interfaces": ["off"],
+    "perfectionist/sort-imports": ["off"],
+    "perfectionist/sort-object-types": ["off"],
+    "perfectionist/sort-classes": ["off"],
+    "camelcase": ["off"]
+  }
+}
