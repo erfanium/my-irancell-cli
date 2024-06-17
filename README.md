@@ -58,7 +58,7 @@ DESCRIPTION
   Buy an offer
 ```
 
-_See code: [src/commands/buy/index.ts](https://github.com/erfanium/my-irancell-cli/blob/v0.1.0/src/commands/buy/index.ts)_
+_See code: [src/commands/buy/index.ts](https://github.com/erfanium/my-irancell-cli/blob/master/src/commands/buy/index.ts)_
 
 ## `my-irancell help [COMMAND]`
 
@@ -92,7 +92,7 @@ DESCRIPTION
   Login to a new account
 ```
 
-_See code: [src/commands/login/index.ts](https://github.com/erfanium/my-irancell-cli/blob/v0.1.0/src/commands/login/index.ts)_
+_See code: [src/commands/login/index.ts](https://github.com/erfanium/my-irancell-cli/blob/master/src/commands/login/index.ts)_
 
 ## `my-irancell logout`
 
@@ -106,7 +106,7 @@ DESCRIPTION
   Logout from account
 ```
 
-_See code: [src/commands/logout/index.ts](https://github.com/erfanium/my-irancell-cli/blob/v0.1.0/src/commands/logout/index.ts)_
+_See code: [src/commands/logout/index.ts](https://github.com/erfanium/my-irancell-cli/blob/master/src/commands/logout/index.ts)_
 
 ## `my-irancell offers`
 
@@ -120,7 +120,7 @@ DESCRIPTION
   List all available offers
 ```
 
-_See code: [src/commands/offers/index.ts](https://github.com/erfanium/my-irancell-cli/blob/v0.1.0/src/commands/offers/index.ts)_
+_See code: [src/commands/offers/index.ts](https://github.com/erfanium/my-irancell-cli/blob/master/src/commands/offers/index.ts)_
 
 ## `my-irancell status`
 
@@ -134,5 +134,5 @@ DESCRIPTION
   Show account status
 ```
 
-_See code: [src/commands/status/index.ts](https://github.com/erfanium/my-irancell-cli/blob/v0.1.0/src/commands/status/index.ts)_
+_See code: [src/commands/status/index.ts](https://github.com/erfanium/my-irancell-cli/blob/master/src/commands/status/index.ts)_
 <!-- commandsstop -->
