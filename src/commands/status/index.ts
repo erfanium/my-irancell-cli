@@ -12,15 +12,8 @@ export default class Status extends AuthorizedCommand {
 
     const table = new CliTable({
       ...TableCommon,
-      head: [
-        "Offer Code",
-        "Name",
-        "Expiry",
-        "Data Used",
-        "Data Remaining",
-        "Total Amount",
-      ],
-      colWidths: [15, 30, 20, 20, 15, 20, 25, 20, 25],
+      head: ["Offer Code", "Name", "Expiry", "Data Used", "Data Remaining"],
+      colWidths: [15, 30, 15, 15, 15],
     });
 
     for (const offer of data.active_offers) {
@@ -39,7 +32,6 @@ export default class Status extends AuthorizedCommand {
         `in ${daysRemaining} days`,
         globalDataUsedGB + " GB",
         globalDataRemainingGB + " GB",
-        offer.total_amount,
       ]);
     }
 
