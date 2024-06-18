@@ -1,5 +1,4 @@
 import CliTable from "cli-table3";
-import moment from "moment";
 
 import { AuthorizedCommand } from "../../command.js";
 import { TableCommon } from "../../table.js";
@@ -17,9 +16,16 @@ export default class Status extends AuthorizedCommand {
     });
 
     for (const offer of data.active_offers) {
-      const expiryDate = moment(offer.expiry_date);
-      const now = moment();
-      const daysRemaining = expiryDate.diff(now, "days");
+      const expiryDate = Date.parse(offer.expiry_date);
+      const now = Date.now();
+
+      //convert milliseconds to days
+      var daysRemaining = Math.round((expiryDate-now)/(1000*3600*24));
+
+      //if expired, days remaining set to zero
+      if(daysRemaining<0){
+        daysRemaining=0
+      }
 
       const globalDataUsedGB = (offer.global_data_used / 1024).toFixed(2);
       const globalDataRemainingGB = (
