@@ -12,7 +12,6 @@
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
     "cli-table3": "^0.6.5",
-    "filesize": "^10.1.2",
     "fs-extra": "^11.2.0",
     "inquirer": "^9.2.23",
     "jwt-decode": "^4.0.0",
