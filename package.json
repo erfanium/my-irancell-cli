@@ -1,7 +1,7 @@
 {
   "name": "my-irancell-cli",
-  "description": "cli for my.irancell.com",
-  "version": "0.1.0",
+  "description": "cli for my.irancell.ir",
+  "version": "0.1.1",
   "author": "Erfanium",
   "bin": {
     "my-irancell": "./bin/run.js"
