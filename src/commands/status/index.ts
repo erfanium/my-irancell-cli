@@ -1,39 +1,37 @@
-import CliTable from "cli-table3";
-import moment from "moment";
-
 import { AuthorizedCommand } from "../../command.js";
-import { TableCommon } from "../../table.js";
+import { makeTable } from "../../table.js";
+
+export const formatSize = (sizeInMegaBytes: number): string =>
+  `${(sizeInMegaBytes / 1024).toFixed(2)} GB`;
 
 export default class Status extends AuthorizedCommand {
   static description = "Show account status";
 
   async run(): Promise<void> {
-    const data = await this.api.getAccount();
-
-    const table = new CliTable({
-      ...TableCommon,
-      head: ["Offer Code", "Name", "Expiry", "Data Used", "Data Remaining"],
-      colWidths: [15, 30, 15, 15, 15],
+    const rtf = new Intl.RelativeTimeFormat("en", {
+      style: "long",
+      numeric: "auto",
     });
 
-    for (const offer of data.active_offers) {
-      const expiryDate = moment(offer.expiry_date);
-      const now = moment();
-      const daysRemaining = expiryDate.diff(now, "days");
+    const data = await this.api.getAccount();
 
-      const globalDataUsedGB = (offer.global_data_used / 1024).toFixed(2);
-      const globalDataRemainingGB = (
-        offer.global_data_remaining / 1024
-      ).toFixed(2);
-
-      table.push([
+    const table = makeTable({
+      head: ["Offer Code", "Name", "Expiry", "Data Used / Remaining"],
+      colWidths: [15, 30, 15, 30],
+      rows: data.active_offers.map((offer) => [
         offer.offer_code,
         offer.name,
-        `in ${daysRemaining} days`,
-        globalDataUsedGB + " GB",
-        globalDataRemainingGB + " GB",
-      ]);
-    }
+        rtf.format(
+          Math.round(
+            (Date.parse(offer.expiry_date) - Date.now()) / (1000 * 60 * 60 * 24)
+          ),
+          "day"
+        ),
+        `${formatSize(
+          offer.total_amount - offer.remained_amount
+        )} / ${formatSize(offer.total_amount)}`,
+      ]),
+    });
 
     this.log(table.toString());
   }

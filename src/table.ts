@@ -1,4 +1,6 @@
-export const TableCommon = {
+import CliTable from "cli-table3";
+
+const TableCommon = {
   chars: {
     top: "",
     "top-mid": "",
@@ -17,4 +19,24 @@ export const TableCommon = {
     middle: " ",
   },
   style: { "padding-left": 0, "padding-right": 0 },
+};
+
+export const makeTable = ({
+  head,
+  rows,
+  colWidths,
+}: {
+  head: string[];
+  rows: string[][];
+  colWidths: number[];
+}) => {
+  const t = new CliTable({
+    ...TableCommon,
+    head,
+    colWidths,
+  });
+
+  t.push(...rows);
+
+  return t;
 };
