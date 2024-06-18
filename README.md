@@ -1,7 +1,7 @@
 my-irancell-cli
 =================
 
-Cli for my.irancell.com. You can get your current status, list offers and buy offers by using this cli.
+Cli for my.irancell.ir. You can get your current status, list offers and buy offers by using this cli.
 
 ![my-irancell](https://github.com/erfanium/my-irancell-cli/assets/47688578/8a8350b4-96a8-4b84-98d3-c22e6b2a7289)
 
@@ -12,7 +12,7 @@ $ npm install -g my-irancell-cli
 ```
 
 # Login
-You have to install to your irancell account with your phone number and password. 
+You have to login to your irancell account with your phone number and password. 
 ```sh
 $ my-irancell login
 ```
